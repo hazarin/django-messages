@@ -87,6 +87,7 @@ class Message(models.Model):
         super(Message, self).save(**kwargs)
 
     class Meta:
+        index_together = ['sender', 'recipient']
         ordering = ['-sent_at']
         verbose_name = _("Message")
         verbose_name_plural = _("Messages")
